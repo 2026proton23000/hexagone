@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Le look "Papier technique" de fond */
+body {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0, 160, 197, 0.05) 1px, transparent 0);
+  background-size: 30px 30px;
+}
+
+/* On définit la police Space Grotesk pour les titres */
+h1, h2, h3, .font-tech {
+  font-family: 'Space Grotesk', sans-serif;
+}

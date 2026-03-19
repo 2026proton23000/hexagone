@@ -1,0 +1,35 @@
+[
+  {
+    "id": "moulin-huile",
+    "title": { "fr": "Moulins & Oléiculture", "es": "Almazaras y Olivicultura", "en": "Oil Mills & Olive Industry" },
+    "description": { 
+      "fr": "Automatisation complète du processus d'extraction, gestion des lots de désamérisation et traçabilité QR Code.",
+      "es": "Automatización completa de extracción, gestión de lotes de desamargado y trazabilidad QR.",
+      "en": "Full extraction process automation, debittering batch management, and QR traceability."
+    },
+    "icon": "fa-seedling",
+    "linked_app": "oleoflow"
+  },
+  {
+    "id": "manufacture",
+    "title": { "fr": "Usines Manufacturières", "es": "Plantas Industriales", "en": "Manufacturing Plants" },
+    "description": { 
+      "fr": "Monitoring en temps réel des lignes de production et suppression des rapports papier via Maverick OS.",
+      "es": "Monitoreo en tiempo real y eliminación de reportes en papel mediante Maverick OS.",
+      "en": "Real-time production monitoring and paperless reporting via Maverick OS."
+    },
+    "icon": "fa-industry",
+    "linked_app": "maverick-engine"
+  },
+  {
+    "id": "logistique",
+    "title": { "fr": "Logistique & Quai", "es": "Logística y Muelles", "en": "Logistics & Docks" },
+    "description": { 
+      "fr": "Gestion des flux d'entrée/sortie, pesée connectée et synchronisation en zone blanche (hors-ligne).",
+      "es": "Gestión de flujos de entrada/salida, pesaje conectado y sincronización offline.",
+      "en": "In/Out flow management, connected weighing, and offline synchronization."
+    },
+    "icon": "fa-truck-loading",
+    "linked_app": "payload-app"
+  }
+]

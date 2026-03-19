@@ -1,0 +1,27 @@
+---
+const { title, subtitle, badgeText } = Astro.props;
+---
+<div class="bg-white rounded-[28px] shadow-[0_8px_20px_rgba(0,0,0,0.03)] border border-[#007b961a] p-10 md:p-14 my-12 grid md:grid-cols-2 gap-8 items-center">
+  <div>
+    <h1 class="text-5xl md:text-6xl font-black text-[#0a1b26] leading-[1.1] tracking-tighter uppercase italic">
+      {title}
+    </h1>
+    <div class="mt-8 flex flex-wrap gap-3">
+        <span class="bg-[#e4edf2] border border-[#b3d5e2] text-[#10455b] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+            <i class="fas fa-microchip mr-2"></i> Industrial Edge
+        </span>
+        <span class="bg-[#e4edf2] border border-[#b3d5e2] text-[#10455b] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+            <i class="fas fa-code mr-2"></i> Sovereign Software
+        </span>
+    </div>
+  </div>
+  <div class="border-l-4 border-[#00a0c5] bg-[#f9fcff] p-8 rounded-r-lg">
+    <p class="text-xl text-[#2d4a5b] leading-relaxed italic">
+      {subtitle}
+    </p>
+    <div class="mt-6 flex gap-6 text-[#007396] font-bold text-sm uppercase tracking-widest">
+        <span><i class="fas fa-shield-alt mr-2"></i> Cybersecure</span>
+        <span><i class="fas fa-plug mr-2"></i> Interoperable</span>
+    </div>
+  </div>
+</div>

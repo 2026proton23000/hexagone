@@ -1,0 +1,112 @@
+[
+  {
+    "id": "maverick",
+    "icon": "fa-server",
+    "name": "Maverick Engine",
+    "tagline": {
+      "fr": "L'OS métier pour moulins à huile.",
+      "es": "El sistema operativo de negocio para almazaras.",
+      "en": "The business OS for oil mills."
+    },
+    "summary": {
+      "fr": "Digitalisation complète de la réception à la production sur Raspberry Pi. Zéro cloud, 100% souverain.",
+      "es": "Digitalización completa desde la recepción hasta la producción en Raspberry Pi. Sin nube, 100% soberano.",
+      "en": "Full digitalization from reception to production on Raspberry Pi. Zero cloud, 100% sovereign."
+    },
+    "description": {
+      "fr": "Système d'exploitation métier conçu pour tourner sur Raspberry Pi. Il remplace les carnets papier et Excel par une base SQLite ultra-robuste. Gère la réception, la production, le conditionnement et la traçabilité sans abonnement. Chaque formulaire est un fichier HTML modifiable sans recompilation.",
+      "es": "Sistema operativo de negocio diseñado para funcionar en Raspberry Pi. Reemplaza los cuadernos de papel y Excel con una base de datos SQLite ultra robusta. Gestiona la recepción, producción, envasado y trazabilidad sin suscripciones. Cada formulario es un archivo HTML modificable sin recompilación.",
+      "en": "Business operating system designed to run on Raspberry Pi. It replaces paper notebooks and Excel with an ultra-robust SQLite database. Manages reception, production, packaging, and traceability without subscriptions. Each form is an HTML file editable without recompilation."
+    },
+    "tech": ["Go", "SQLite", "HTML5", "Raspberry Pi", "Telegram Alerts"],
+    "features": ["Zéro abonnement", "Traçabilité signée", "Multi-poste local", "Exports Excel/PDF"]
+  },
+  {
+    "id": "oleoflow",
+    "icon": "fa-seedling",
+    "name": "OleoFlow Quemadura",
+    "tagline": {
+      "fr": "Traçabilité intégrale de désamérisation.",
+      "es": "Trazabilidad integral de desamargado.",
+      "en": "Complete debittering traceability."
+    },
+    "summary": {
+      "fr": "Suivi de lots par QR Code pour le processus de brûlage. Mode hors-ligne et calculs Baumé intégrés.",
+      "es": "Seguimiento de lotes por código QR para el proceso de quemadura. Modo offline y cálculos Baumé.",
+      "en": "Batch tracking via QR Code for the burning process. Offline mode and Baumé calculations."
+    },
+    "description": {
+      "fr": "Application dédiée aux prestataires de désamérisation. Permet la saisie chronologique : injection caustique, rinçages, contrôles pH/Baumé et ajouts d'ingrédients. Génère un QR Code 'passeport' contenant tout l'historique du lot, lisible même sans réseau.",
+      "es": "Aplicación dedicada a servicios de desamargado. Permite el registro cronológico: inyección cáustica, enjuagues, controles de pH/Baumé y adición de ingredientes. Genera un código QR 'pasaporte' con todo el historial del lote, legible sin conexión.",
+      "en": "App dedicated to debittering service providers. Allows chronological entry: caustic injection, rinsing, pH/Baumé checks, and ingredient additions. Generates a 'passport' QR Code containing the entire batch history, readable offline."
+    },
+    "tech": ["Flutter", "Dart", "SQLite", "QR Engine"],
+    "features": ["Mode hors-ligne", "QR intelligent", "Rapports PDF", "Signature opérateur"]
+  },
+  {
+    "id": "payload",
+    "icon": "fa-qrcode",
+    "name": "PayLoad App",
+    "tagline": {
+      "fr": "Collecte de données terrain par QR Code.",
+      "es": "Recolección de datos de campo por código QR.",
+      "en": "Field data collection via QR Code."
+    },
+    "summary": {
+      "fr": "Suivi de production pour zones blanches. Envois différés fiables via Telegram ou Cloud.",
+      "es": "Seguimiento de producción para zonas sin cobertura. Envío diferido vía Telegram o Cloud.",
+      "en": "Production tracking for dead zones. Reliable deferred sending via Telegram or Cloud."
+    },
+    "description": {
+      "fr": "Solution pour remplacer la paperasse en zone mal couverte. L'opérateur scanne un QR, remplit les champs et prend des photos. Les données sont stockées localement et transmises automatiquement dès qu'un réseau est détecté. Configuration ultra-flexible via fichier JSON.",
+      "es": "Solución para reemplazar el papeleo en zonas con poca cobertura. El operador escanea un QR, completa campos y toma fotos. Los datos se guardan localmente y se envían automáticamente al detectar red. Configuración flexible vía JSON.",
+      "en": "Solution to replace paperwork in poorly covered areas. The operator scans a QR, fills fields, and takes photos. Data is stored locally and transmitted automatically when a network is detected. Flexible configuration via JSON."
+    },
+    "tech": ["Flutter", "JSON Config", "Telegram API", "Auto-Retry System"],
+    "features": ["Preuve photo", "Files d'attente", "Zéro infra serveur", "Config 5min"]
+  },
+  {
+    "id": "mapaudit",
+    "icon": "fa-map-marked-alt",
+    "name": "Censo-Core (Map Audit)",
+    "tagline": {
+      "fr": "Cartographie patrimoniale et SIG terrain.",
+      "es": "Cartografía patrimonial y SIG de campo.",
+      "en": "Heritage mapping and field GIS."
+    },
+    "summary": {
+      "fr": "Inventaire géoréférencé d'actifs agricoles (oliviers centenaires). Hybride High/Low-Tech.",
+      "es": "Inventario georreferenciado de activos agrícolas. Híbrido High/Low-Tech.",
+      "en": "Georeferenced inventory of agricultural assets. High/Low-Tech hybrid."
+    },
+    "description": {
+      "fr": "Méthode et outils développés pour le recensement des oliviers centenaires au Pérou. Acquisition via Drone, RTK ou Smartphone. Livrables ouverts (Shapefile, GeoJSON) et cartes interactives avec rapports photographiques par point.",
+      "es": "Método y herramientas para el censo de olivos centenarios. Adquisición vía Dron, RTK o Smartphone. Entregables abiertos (Shapefile, GeoJSON) y mapas interactivos con reportes fotográficos por punto.",
+      "en": "Method and tools developed for the centenary olive tree census. Acquisition via Drone, RTK, or Smartphone. Open deliverables (Shapefile, GeoJSON) and interactive maps with photo reports per point."
+    },
+    "tech": ["GIS", "Photogrammétrie", "GNSS", "Interactive Maps"],
+    "features": ["Précision RTK", "Livrables SIG", "Recensement photo", "Souveraineté des données"]
+  },
+  {
+    "id": "oleosuite",
+    "icon": "fa-calculator",
+    "name": "Mundo AOVE App",
+    "tagline": {
+      "fr": "La suite métier pour oléiculteurs.",
+      "es": "La suite profesional para olivicultores.",
+      "en": "The business suite for olive growers."
+    },
+    "summary": {
+      "fr": "9 modules de calculs spécialisés : rendement, saumures, dilutions et analyses économiques.",
+      "es": "9 módulos de cálculos especializados: rendimiento, salmueras, diluciones y economía.",
+      "en": "9 specialized calculation modules: yield, brines, dilutions, and economics."
+    },
+    "description": {
+      "fr": "L'outil quotidien du producteur : calcul de rendement huile/kilo, préparation précise de saumures avec correction de température (Baumé), désinfection au chlore et assistant d'achat d'intrants (NPK). Inclut des méthodes illustrées pour la formation du personnel.",
+      "es": "Herramienta diaria del productor: cálculo de rendimiento aceite/kilo, preparación de salmueras con corrección térmica (Baumé), desinfección y asistente de compras (NPK). Incluye métodos ilustrados para capacitación.",
+      "en": "Daily tool for growers: oil/kilo yield calculation, precise brine preparation with thermal correction (Baumé), disinfection, and input purchase assistant (NPK). Includes illustrated methods for staff training."
+    },
+    "tech": ["Flutter", "SVG Graphics", "PDF Export", "Multi-Currency"],
+    "features": ["9 Calculateurs", "Zéro Cloud", "Exports PDF/SVG", "Formations intégrées"]
+  }
+]

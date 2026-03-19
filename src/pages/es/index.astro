@@ -1,0 +1,166 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ui from '../../data/ui.json';
+
+const lang = "es";
+const t = ui[lang];
+---
+
+<MainLayout lang={lang} title={t.site_title}>
+  
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 -z-10 opacity-[0.03]">
+      <i class="fas fa-microchip text-[15rem] rotate-12"></i>
+    </div>
+    <div class="max-w-5xl">
+      <h1 class="text-5xl md:text-6xl font-black text-[#0e1f2b] leading-[1.05] uppercase italic tracking-tighter">
+        {t.hero_title.split(' ').slice(0, -1).join(' ')} <span class="text-[#00a0c5]">{t.hero_title.split(' ').pop()}</span>
+      </h1>
+      <p class="mt-6 text-xl text-slate-600 max-w-2xl leading-relaxed">
+        {t.hero_subtitle}
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4 items-center">
+        <a href="#contact" class="group relative inline-flex items-center gap-3 bg-[#0e1f2b] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-[#00a0c5] transition-all duration-300">
+          <span class="relative z-10 text-sm">{t.cta_contact}</span>
+          <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </a>
+        <div class="flex items-center gap-3 px-4 text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">
+           <span class="w-6 h-[1px] bg-slate-300"></span> 
+           Souveraineté Digitale
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50 rounded-[2.5rem] px-8 md:px-16 border border-slate-200 shadow-inner">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-black text-[#0e1f2b] mb-8 uppercase italic tracking-tight">
+        {t.home_presentation.title}
+      </h2>
+      <div class="grid md:grid-cols-5 gap-10 items-center">
+        <div class="md:col-span-3 space-y-5 text-lg text-slate-700 leading-relaxed">
+          <p class="opacity-90">{t.home_presentation.p1}</p>
+          <div class="relative p-5 bg-white border-l-4 border-[#00a0c5] rounded-r-xl shadow-sm italic font-medium text-base">
+            {t.home_presentation.p2}
+          </div>
+          <p>{t.home_presentation.p3}</p>
+        </div>
+        <div class="md:col-span-2 grid grid-cols-2 gap-3">
+          <div class="p-5 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center group hover:border-[#00a0c5] transition-colors">
+             <i class="fas fa-check-circle text-[#00a0c5] text-xl mb-2"></i>
+             <span class="text-[9px] font-black uppercase tracking-wider">Zéro Cloud</span>
+          </div>
+          <div class="p-5 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center group hover:border-[#00a0c5] transition-colors">
+             <i class="fas fa-unlock text-[#00a0c5] text-xl mb-2"></i>
+             <span class="text-[9px] font-black uppercase tracking-wider">Open Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 grid md:grid-cols-2 gap-8">
+    <div class="group p-10 bg-white border border-slate-200 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div class="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center text-[#00a0c5] text-2xl mb-6 group-hover:bg-[#00a0c5] group-hover:text-white transition-colors">
+        <i class="fas fa-microchip"></i>
+      </div>
+      <h3 class="text-2xl font-black uppercase italic mb-4 tracking-tighter">{t.home_axes.software_title}</h3>
+      <p class="text-slate-600 mb-6 text-base leading-relaxed">{t.home_axes.software_text}</p>
+      <a href={`/${lang}/software`} class="inline-flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-[#0e1f2b] group-hover:text-[#00a0c5] transition-colors">
+        {t.home_axes.software_link} <i class="fas fa-long-arrow-alt-right"></i>
+      </a>
+    </div>
+
+    <div class="group p-10 bg-white border border-slate-200 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div class="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center text-[#00a0c5] text-2xl mb-6 group-hover:bg-[#00a0c5] group-hover:text-white transition-colors">
+        <i class="fas fa-globe"></i>
+      </div>
+      <h3 class="text-2xl font-black uppercase italic mb-4 tracking-tighter">{t.home_axes.web_title}</h3>
+      <p class="text-slate-600 mb-6 text-base leading-relaxed">{t.home_axes.web_text}</p>
+      <a href={`/${lang}/web`} class="inline-flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-[#0e1f2b] group-hover:text-[#00a0c5] transition-colors">
+        {t.home_axes.web_link} <i class="fas fa-long-arrow-alt-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="py-12 border-y border-slate-100">
+    <h3 class="text-[9px] font-black uppercase tracking-[0.4em] text-slate-400 mb-8 text-center">{t.home_sectors.title}</h3>
+    <div class="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto">
+      {t.home_sectors.list.map((sector) => (
+        <span class="px-5 py-2.5 bg-white border border-slate-200 rounded-lg text-[11px] font-bold uppercase tracking-tight hover:border-[#00a0c5] transition-colors cursor-default">
+          {sector}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20 bg-[#0e1f2b] text-white rounded-[3rem] px-8 md:px-16 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+       <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:30px_30px]"></div>
+    </div>
+    <h2 class="text-3xl font-black uppercase italic mb-12 relative z-10 tracking-tight">{t.home_process.title}</h2>
+    <div class="grid md:grid-cols-3 gap-10 relative z-10">
+      {[1, 2, 3].map((num) => (
+        <div class="relative group">
+          <div class="text-6xl font-black text-white/5 absolute -top-6 -left-2 transition-colors group-hover:text-[#00a0c5]/10">0{num}</div>
+          <h4 class="text-xl font-bold mb-3 flex items-center gap-2 relative z-10">
+             <span class="w-1.5 h-1.5 bg-[#00a0c5] rounded-full"></span>
+             {t.home_process[`step${num}_t`]}
+          </h4>
+          <p class="text-slate-400 leading-relaxed text-base relative z-10">{t.home_process[`step${num}_d`]}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-24 max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-black uppercase italic mb-3 tracking-tighter text-[#0e1f2b]">{t.home_faq.title}</h2>
+      <div class="w-12 h-1 bg-[#00a0c5] mx-auto rounded-full"></div>
+    </div>
+    <div class="space-y-3">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-[#00a0c5]/50 transition-all duration-200 shadow-sm">
+          <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-lg text-[#0e1f2b] group-open:bg-slate-50 transition-colors">
+            <span class="max-w-[85%] tracking-tight leading-snug">{t.home_faq[`q${i}`]}</span>
+            <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-open:bg-[#00a0c5] group-open:text-white group-open:border-transparent transition-all">
+              <i class="fas fa-plus text-[10px] group-open:hidden"></i>
+              <i class="fas fa-minus text-[10px] hidden group-open:block"></i>
+            </div>
+          </summary>
+          <div class="p-6 pt-2 text-slate-600 text-base leading-relaxed border-t border-slate-50">
+            {t.home_faq[`a${i}`]}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" class="pb-20">
+    <div class="relative bg-white border-2 border-[#0e1f2b] rounded-[3rem] p-10 md:p-16 overflow-hidden group shadow-xl">
+      <div class="absolute top-0 right-0 w-48 h-48 bg-[#00a0c5] translate-x-24 -translate-y-24 rotate-45 group-hover:scale-110 transition-transform duration-500"></div>
+      
+      <div class="relative z-10 max-w-xl">
+        <h2 class="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-none tracking-tighter text-[#0e1f2b]">
+          {t.home_contact_section.title}
+        </h2>
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-md">
+          {t.home_contact_section.subtitle}
+        </p>
+        <a href={`/${lang}/contact`} class="inline-flex items-center gap-3 bg-[#0e1f2b] text-white px-9 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          {t.home_contact_section.button} <i class="fas fa-paper-plane text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  summary::-webkit-details-marker { display: none; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  details[open] div { animation: fadeIn 0.3s ease-out; }
+</style>

@@ -1,0 +1,43 @@
+---
+const { id, name, tagline, description, tech, icon } = Astro.props;
+---
+<div id={id} class="scroll-mt-24 bg-white border border-[#bfd8e4] rounded-[32px] overflow-hidden shadow-sm hover:shadow-md transition-all mb-12">
+  <div class="grid md:grid-cols-12 gap-0">
+    
+    <div class="md:col-span-3 bg-[#f0f7fa] p-8 flex flex-col items-center justify-center border-r border-[#bfd8e4]">
+      <div class="w-20 h-20 bg-white rounded-2xl shadow-inner flex items-center justify-center text-[#00a0c5] text-4xl mb-4 border border-[#d2e3ea]">
+        <i class={`fas ${icon}`}></i>
+      </div>
+      <span class="text-[10px] font-black uppercase tracking-[0.2em] text-[#4f6b7a]">Module System</span>
+    </div>
+
+    <div class="md:col-span-9 p-8 md:p-10">
+      <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+        <div>
+          <h3 class="text-3xl font-black text-[#0e1f2b] uppercase italic tracking-tighter">{name}</h3>
+          <p class="text-[#00a0c5] font-bold text-sm uppercase tracking-widest mt-1">{tagline}</p>
+        </div>
+        <div class="flex gap-2">
+          {tech.map((t) => (
+            <span class="bg-[#e1f0f7] text-[#007396] text-[10px] font-bold px-2 py-1 rounded border border-[#b3d5e2] uppercase">
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <p class="text-[#3c6275] text-lg leading-relaxed mb-8 max-w-3xl">
+        {description}
+      </p>
+
+      <div class="flex gap-4">
+        <button class="bg-[#004f6e] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#003f57] transition-colors flex items-center gap-2">
+          <i class="fas fa-file-pdf"></i> Datasheet
+        </button>
+        <a href="#contact" class="border border-[#004f6e] text-[#004f6e] px-6 py-3 rounded-full font-bold text-sm hover:bg-[#f0f7fa] transition-colors">
+          Demander une démo
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

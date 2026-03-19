@@ -1,0 +1,115 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import solutions from '../../data/solutions.json';
+
+// Définition de la langue (tu pourras plus tard la rendre dynamique via l'URL)
+const lang = "en"; 
+
+// Traductions pour le contenu statique du header
+const t = {
+  fr: {
+    badge: "Souveraineté Numérique",
+    title_1: "Software",
+    title_2: "Ecosystem",
+    description: "Solutions locales-first en Go & Flutter. Performance brute, base SQLite embarquée et indépendance totale vis-à-vis du Cloud."
+  },
+  es: {
+    badge: "Soberanía Digital",
+    title_1: "Ecosistema",
+    title_2: "Software",
+    description: "Soluciones local-first en Go & Flutter. Rendimiento puro, base de datos SQLite integrada e independencia total de la nube."
+  },
+  en: {
+    badge: "Digital Sovereignty",
+    title_1: "Software",
+    title_2: "Ecosystem",
+    description: "Local-first solutions in Go & Flutter. Raw performance, embedded SQLite database, and total cloud independence."
+  }
+};
+---
+
+<MainLayout lang={lang} title={`${t[lang].title_1} ${t[lang].title_2} | Hexagone`}>
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    
+    <header class="bg-[#0e1f2b] rounded-[2.5rem] p-10 md:p-16 mb-12 relative overflow-hidden shadow-2xl">
+      <div class="relative z-10">
+        <span class="text-[#00a0c5] font-black tracking-[0.3em] uppercase text-[10px]">
+          {t[lang].badge}
+        </span>
+        <h1 class="text-4xl md:text-6xl font-black text-white mt-4 uppercase italic tracking-tighter leading-none">
+          {t[lang].title_1} <span class="text-[#00a0c5]">{t[lang].title_2}</span>
+        </h1>
+        <p class="text-slate-400 mt-6 max-w-2xl text-lg leading-relaxed">
+          {t[lang].description}
+        </p>
+      </div>
+      <i class="fas fa-microchip absolute right-[-20px] bottom-[-20px] opacity-10 text-[12rem] rotate-12 text-white"></i>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {solutions.map((app) => (
+        <article class="group bg-white border border-slate-200 rounded-[2rem] p-8 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-[#00a0c5] text-xl mb-6 group-hover:bg-[#00a0c5] group-hover:text-white transition-colors">
+              <i class={`fas ${app.icon}`}></i>
+            </div>
+            <h3 class="text-xl font-black uppercase italic tracking-tight text-[#0e1f2b] mb-2">{app.name}</h3>
+            <p class="text-[#00a0c5] text-[10px] font-bold uppercase tracking-widest mb-4">{app.tagline[lang]}</p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">{app.summary[lang]}</p>
+          </div>
+          
+          <button 
+            onclick={`document.getElementById('modal-${app.id}').showModal()`}
+            class="w-full py-3 bg-slate-50 rounded-xl font-black text-[10px] uppercase tracking-widest text-[#0e1f2b] hover:bg-[#0e1f2b] hover:text-white transition-all"
+          >
+            {lang === 'fr' ? 'En savoir plus +' : lang === 'es' ? 'Saber más +' : 'Read more +'}
+          </button>
+
+          <dialog id={`modal-${app.id}`} class="backdrop:blur-md p-0 rounded-[2.5rem] shadow-2xl border-none max-w-2xl w-full overflow-hidden">
+            <div class="p-8 md:p-12 relative bg-white">
+              <button 
+                onclick={`this.closest('dialog').close()`}
+                class="absolute top-6 right-6 text-slate-400 hover:text-[#0e1f2b] transition-colors"
+              >
+                <i class="fas fa-times text-xl"></i>
+              </button>
+              
+              <span class="text-[#00a0c5] text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">
+                {lang === 'fr' ? 'Détails de la solution' : lang === 'es' ? 'Detalles de la solución' : 'Solution details'}
+              </span>
+              <h2 class="text-3xl font-black uppercase italic text-[#0e1f2b] mb-6">{app.name}</h2>
+              
+              <div class="space-y-6">
+                <p class="text-lg text-slate-700 leading-relaxed">
+                  {app.description[lang]}
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 py-6 border-t border-slate-100">
+                  {app.features.map((feat) => (
+                    <div class="flex items-center gap-2 text-slate-700">
+                      <i class="fas fa-check text-[#00a0c5] text-[10px]"></i>
+                      <span class="text-xs font-medium">{feat}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div class="pt-6 border-t border-slate-100">
+                  <h4 class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-4">
+                    {lang === 'fr' ? 'Stack Technique' : lang === 'es' ? 'Stack Técnico' : 'Technical Stack'}
+                  </h4>
+                  <div class="flex flex-wrap gap-2">
+                    {app.tech.map((t) => (
+                      <span class="px-3 py-1 bg-slate-100 rounded-md text-[10px] font-bold text-slate-600 uppercase">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </dialog>
+        </article>
+      ))}
+    </div>
+  </div>
+</MainLayout>

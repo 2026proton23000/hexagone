@@ -1,0 +1,40 @@
+---
+// LanguagePicker.astro
+const { currentLang } = Astro.props;
+
+// On récupère le chemin actuel (ex: /fr/web)
+const { pathname } = Astro.url;
+
+const languages = {
+  fr: { label: 'FR', flag: '🇫🇷' },
+  es: { label: 'ES', flag: '🇵🇪' },
+  en: { label: 'EN', flag: '🇺🇸' }
+};
+
+function getLocalizedLink(targetLang) {
+  // On nettoie l'URL pour enlever les slashs vides
+  const segments = pathname.split('/').filter(Boolean);
+  
+  // Si on est à la racine "/" ou juste sur une langue "/fr/"
+  if (segments.length <= 1) {
+    return `/${targetLang}/`;
+  }
+
+  // On garde le reste du chemin (ex: 'web' ou 'industry') 
+  // et on change juste le premier segment (la langue)
+  segments[0] = targetLang;
+  
+  return `/${segments.join('/')}`;
+}
+---
+
+<div class="flex gap-4">
+  {Object.entries(languages).map(([code, { label, flag }]) => (
+    <a 
+      href={getLocalizedLink(code)}
+      class={`text-[10px] font-black px-2 py-1 rounded border transition-all ${currentLang === code ? 'border-[#00a0c5] text-[#00a0c5] bg-[#00a0c5]/10' : 'border-slate-800 text-slate-500 hover:border-slate-600'}`}
+    >
+      {flag} {label}
+    </a>
+  ))}
+</div>

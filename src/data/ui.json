@@ -1,0 +1,278 @@
+{
+  "fr": {
+    "site_title": "Hexagone | Logiciels & sites sur mesure",
+    "hero_title": "Hexagone – Logiciels & sites sur mesure pour les professionnels",
+    "hero_subtitle": "Des outils adaptés à votre façon de travailler. Pour les TPE, PME et indépendants qui veulent du sur-mesure sans se prendre la tête avec la technique.",
+    "cta_contact": "Parlons de votre projet",
+    "menu": {
+      "industrie": "Industrie",
+      "software": "Web & Logiciel",
+      "contact": "Contact"
+    },
+    "footer": {
+      "copyright": "© 2026 Hexagone - Expert Indépendant en Automation & Software.",
+      "tagline": "HEXAGONE.ENGINEERING"
+    },
+    "home_presentation": {
+      "title": "Des solutions construites autour de vous",
+      "p1": "Les logiciels standard imposent leur logique. Les templates de sites web se ressemblent tous.",
+      "p2": "Hexagone part de votre métier, de vos contraintes, de vos habitudes.",
+      "p3": "On construit ensemble l'outil qu'il vous faut. Sans jargon, sans usine à gaz, sans mauvaise surprise."
+    },
+    "home_axes": {
+      "software_title": "Logiciels métiers",
+      "software_text": "Des applications conçues pour votre activité : outils de suivi, gestion de données, interfaces techniques, automatisation de tâches. Ça part d'un besoin précis, on construit ensemble.",
+      "software_link": "En savoir plus sur les logiciels",
+      "web_title": "Sites web professionnels",
+      "web_text": "Des sites qui donnent envie : vitrines, catalogues, petits e-commerces. Simples à utiliser, faits pour durer, sans template préfabriqué.",
+      "web_link": "Découvrir les sites web"
+    },
+    "home_sectors": {
+      "title": "Secteurs accompagnés",
+      "list": [
+        "Viticulteurs & producteurs",
+        "Artisans & petits commerces",
+        "TPE/PME de l'agroalimentaire",
+        "Startups industrielles",
+        "Associations & collectifs"
+      ],
+      "more": "et d'autres métiers, on en parle"
+    },
+    "home_process": {
+      "title": "Comment ça se passe",
+      "step1_t": "Un échange",
+      "step1_d": "Vous racontez votre métier, ce qui pourrait être simplifié, ce que vous aimeriez avoir.",
+      "step2_t": "Une proposition",
+      "step2_d": "Une idée concrète, un premier petit outil utile qu'on peut construire rapidement.",
+      "step3_t": "On construit ensemble",
+      "step3_d": "Vous testez en conditions réelles, on ajuste, et l'outil évolue avec vous."
+    },
+    "home_faq": {
+      "title": "Questions fréquentes",
+      "q1": "Je suis tout petit ou seul, c'est vraiment pour moi ?",
+      "a1": "Oui, tout à fait. Une grande partie de nos accompagnements concerne des indépendants et des TPE. On ne cherche pas à faire compliqué, on cherche à faire utile. On peut très bien commencer par automatiser une seule tâche simple pour vous gagner du temps.",
+      "q2": "C'est quoi la différence entre un logiciel 'métier' et un logiciel classique ?",
+      "a2": "Un logiciel classique (ou 'standard') vous impose sa logique : vous devez changer vos habitudes pour l'utiliser. Un logiciel 'métier' est conçu sur-mesure pour vous : il utilise vos termes, respecte vos étapes de travail et ne contient que les fonctions dont vous avez réellement besoin.",
+      "q3": "Combien de temps ça prend pour avoir un outil ?",
+      "a3": "On mise sur la rapidité. Comptez généralement quelques semaines pour avoir un premier outil fonctionnel entre les mains. L'objectif est que vous puissiez l'utiliser très vite, pour ensuite l'améliorer ensemble au fur et à mesure.",
+      "q4": "Et si j'ai besoin d'aide après la livraison ?",
+      "a4": "On ne vous lâche pas dans la nature. Un mail ou un appel, et on intervient. Comme c'est du sur-mesure, on connaît chaque ligne de code de votre outil, ce qui permet d'être extrêmement réactif pour un ajustement ou un dépannage.",
+      "q5": "Est-ce que je reste propriétaire de mes données ?",
+      "a5": "C'est un point non négociable : vos données vous appartiennent. Contrairement aux abonnements cloud classiques, nous privilégions les solutions où vos données restent chez vous, sur vos machines ou vos serveurs. Vous êtes libre et tranquille."
+    },
+    "home_contact_section": {
+      "title": "Vous avez un projet ou juste une idée ?",
+      "subtitle": "Racontez votre métier et ce que vous aimeriez simplifier. On en discute sans engagement.",
+      "button": "Contactez-nous"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Discutons de votre projet",
+      "sectors": {
+        "title": "Votre domaine",
+        "indus": "Industrie / Maintenance",
+        "soft": "Logiciel / Systèmes",
+        "web": "Web / Digital",
+        "idea": "Autre / Idée"
+      },
+      "name_label": "Nom complet",
+      "name_placeholder": "Jean Dupont",
+      "email_label": "Email professionnel",
+      "email_placeholder": "jean.dupont@entreprise.fr",
+      "message_label": "Votre message",
+      "message_placeholder": "Décrivez votre besoin...",
+      "submit": "Envoyer le message",
+      "success": "Message envoyé ! Nous vous répondrons sous 24h.",
+      "error_name": "Le nom est requis.",
+      "error_email": "L'email est requis.",
+      "error_email_invalid": "Email invalide.",
+      "error_message": "Le message est requis.",
+      "error_message_too_short": "Message trop court (minimum 10 caractères).",
+      "error_general": "Veuillez remplir tous les champs correctement."
+    }
+  },
+  "es": {
+    "site_title": "Hexagone | Software y sitios a medida",
+    "hero_title": "Hexagone – Software y sitios a medida para profesionales",
+    "hero_subtitle": "Herramientas adaptadas a su forma de trabajar. Para autónomos y pymes que buscan soluciones a medida sin complicaciones técnicas.",
+    "cta_contact": "Hablemos de su proyecto",
+    "menu": {
+      "industrie": "Industria",
+      "software": "Web & Software",
+      "contact": "Contacto"
+    },
+    "footer": {
+      "copyright": "© 2026 Hexagone - Experto Independiente en Automatización y Software.",
+      "tagline": "HEXAGONE.ENGINEERING"
+    },
+    "home_presentation": {
+      "title": "Soluciones construidas para usted",
+      "p1": "El software estándar impone su lógica. Las plantillas web se parecen todas.",
+      "p2": "Hexagone parte de su oficio, sus limitaciones y sus hábitos.",
+      "p3": "Construimos juntos la herramienta que necesita. Sin jerga, sin complicaciones, sin sorpresas."
+    },
+    "home_axes": {
+      "software_title": "Software a medida",
+      "software_text": "Aplicaciones diseñadas para su actividad: seguimiento, gestión de datos, interfaces técnicas y automatización. Una necesidad precisa, una respuesta a medida.",
+      "software_link": "Saber más sobre software",
+      "web_title": "Sitios web profesionales",
+      "web_text": "Sitios atractivos: vitrinas, catálogos o e-commerces. Fáciles de usar, hechos para durar y sin plantillas prefabricadas.",
+      "web_link": "Descubrir sitios web"
+    },
+    "home_sectors": {
+      "title": "Sectores que acompañamos",
+      "list": [
+        "Viticultores y productores",
+        "Artesanos y pequeños comercios",
+        "Pymes agroalimentarias",
+        "Startups industriales",
+        "Asociaciones y colectivos"
+      ],
+      "more": "y otros oficios, hablemos"
+    },
+    "home_process": {
+      "title": "Cómo funciona",
+      "step1_t": "Un intercambio",
+      "step1_d": "Usted nos cuenta su oficio, lo que podría simplificarse y lo que le gustaría tener.",
+      "step2_t": "Una propuesta",
+      "step2_d": "Una idea concreta, una primera herramienta útil que podemos construir rápidamente.",
+      "step3_t": "Construimos juntos",
+      "step3_d": "Usted prueba en condiciones reales, ajustamos y la herramienta evoluciona con usted."
+    },
+    "home_faq": {
+      "title": "Preguntas frecuentes",
+      "q1": "¿Soy autónomo o una empresa pequeña, es para mí?",
+      "a1": "Sí, por supuesto. Gran parte de nuestros clientes son autónomos y PYMES. No buscamos lo complejo, sino lo útil. Podemos empezar automatizando una sola tarea sencilla para ahorrarle tiempo.",
+      "q2": "¿Cuál es la diferencia entre software 'a medida' y software clásico?",
+      "a2": "El software clásico le impone su lógica: usted debe cambiar sus hábitos. El software a medida se diseña para usted: usa sus términos, respeta sus pasos de trabajo y solo contiene lo que realmente necesita.",
+      "q3": "¿Cuánto tiempo toma tener una herramienta?",
+      "a3": "Apostamos por la rapidez. Normalmente, en pocas semanas tendrá una primera herramienta funcional. El objetivo es que pueda usarla pronto y mejorarla juntos paso a paso.",
+      "q4": "¿Y si necesito ayuda después de la entrega?",
+      "a4": "No le abandonamos. Una llamada o correo y actuamos. Al ser código a medida, conocemos cada línea, lo que nos permite ser muy reactivos para cualquier ajuste.",
+      "q5": "¿Sigo siendo dueño de mis datos?",
+      "a5": "Es innegociable: sus datos son suyos. Priorizamos soluciones donde sus datos permanecen con usted, en sus máquinas, sin depender de suscripciones en la nube."
+    },
+    "home_contact_section": {
+      "title": "¿Tiene un proyecto o solo una idea?",
+      "subtitle": "Cuéntenos su oficio y lo que le gustaría simplificar. Hablamos sin compromiso.",
+      "button": "Contacte con nosotros"
+    },
+    "contact": {
+      "title": "Contacto",
+      "subtitle": "Hablemos de su proyecto",
+      "sectors": {
+        "title": "Su sector",
+        "indus": "Industria / Mantenimiento",
+        "soft": "Software / Sistemas",
+        "web": "Web / Digital",
+        "idea": "Otra / Idea"
+      },
+      "name_label": "Nombre completo",
+      "name_placeholder": "Juan Pérez",
+      "email_label": "Correo profesional",
+      "email_placeholder": "juan.perez@empresa.es",
+      "message_label": "Su mensaje",
+      "message_placeholder": "Describa su necesidad...",
+      "submit": "Enviar mensaje",
+      "success": "¡Mensaje enviado! Le responderemos en 24h.",
+      "error_name": "El nombre es obligatorio.",
+      "error_email": "El correo es obligatorio.",
+      "error_email_invalid": "Correo inválido.",
+      "error_message": "El mensaje es obligatorio.",
+      "error_message_too_short": "Mensaje demasiado corto (mínimo 10 caracteres).",
+      "error_general": "Por favor, rellene todos los campos correctamente."
+    }
+  },
+  "en": {
+    "site_title": "Hexagone | Custom software & websites",
+    "hero_title": "Hexagone – Custom software & websites for professionals",
+    "hero_subtitle": "Tools tailored to the way you work. For small businesses and freelancers wanting custom solutions without the technical headache.",
+    "cta_contact": "Let's talk about your project",
+    "menu": {
+      "industrie": "Industry",
+      "software": "Web & Software",
+      "contact": "Contact"
+    },
+    "footer": {
+      "copyright": "© 2026 Hexagone - Independent Expert in Automation & Software.",
+      "tagline": "HEXAGONE.ENGINEERING"
+    },
+    "home_presentation": {
+      "title": "Solutions built around you",
+      "p1": "Standard software imposes its logic. Web templates all look the same.",
+      "p2": "Hexagone starts from your business, your constraints, and your habits.",
+      "p3": "Together we build the tool you need. No jargon, no bloat, no bad surprises."
+    },
+    "home_axes": {
+      "software_title": "Custom Software",
+      "software_text": "Applications designed for your business: tracking tools, data management, technical interfaces, and automation. A specific need, a tailored response.",
+      "software_link": "Learn more about software",
+      "web_title": "Professional Websites",
+      "web_text": "Engaging websites: showcases, catalogs, or small e-commerce. Easy to use, built to last, and without pre-made templates.",
+      "web_link": "Discover websites"
+    },
+    "home_sectors": {
+      "title": "Sectors we support",
+      "list": [
+        "Winegrowers & producers",
+        "Artisans & small shops",
+        "Agri-food SMEs",
+        "Industrial startups",
+        "Associations & collectives"
+      ],
+      "more": "and other trades, let's talk"
+    },
+    "home_process": {
+      "title": "How it works",
+      "step1_t": "An exchange",
+      "step1_d": "You tell us about your business, what could be simplified, and what you'd like to have.",
+      "step2_t": "A proposal",
+      "step2_d": "A concrete idea for a first useful tool that can be built quickly.",
+      "step3_t": "We build together",
+      "step3_d": "You test in real conditions, we adjust, and the tool evolves with you."
+    },
+    "home_faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "I am an individual or a small team, is this for me?",
+      "a1": "Absolutely. A large part of our support concerns freelancers and small businesses. We don't aim for complexity, we aim for utility. We can start by automating a single simple task to save you time.",
+      "q2": "What is the difference between 'custom' software and standard software?",
+      "a2": "Standard software imposes its logic: you have to change your habits to use it. Custom software is designed for you: it uses your terms, respects your workflow, and only contains the features you actually need.",
+      "q3": "How long does it take to get a tool?",
+      "a3": "We focus on speed. Expect a few weeks to have a first functional tool in your hands. The goal is for you to use it quickly and then improve it together over time.",
+      "q4": "What about support after delivery?",
+      "a4": "We don't leave you hanging. A simple call or email and we intervene. Since it's custom-made, we know every line of code, allowing us to be extremely reactive for adjustments or troubleshooting.",
+      "q5": "Do I remain the owner of my data?",
+      "a5": "This is non-negotiable: your data is yours. Unlike standard cloud subscriptions, we prioritize solutions where your data stays with you on your own machines. You are free and in control."
+    },
+    "home_contact_section": {
+      "title": "Do you have a project or just an idea?",
+      "subtitle": "Tell us about your business and what you'd like to simplify. Let's discuss without commitment.",
+      "button": "Contact us"
+    },
+"contact": {
+      "title": "Contact",
+      "subtitle": "Let's discuss your project",
+      "sectors": {
+        "title": "Your sector",
+        "indus": "Industry / Maintenance",
+        "soft": "Software / Systems",
+        "web": "Web / Digital",
+        "idea": "Other / Idea"
+      },
+      "name_label": "Full name",
+      "name_placeholder": "John Doe",
+      "email_label": "Professional email",
+      "email_placeholder": "john.doe@company.com",
+      "message_label": "Your message",
+      "message_placeholder": "Describe your need...",
+      "submit": "Send message",
+      "success": "Message sent! We'll reply within 24h.",
+      "error_name": "Name is required.",
+      "error_email": "Email is required.",
+      "error_email_invalid": "Invalid email.",
+      "error_message": "Message is required.",
+      "error_message_too_short": "Message too short (minimum 10 characters).",
+      "error_general": "Please fill all fields correctly."
+    }
+  }
+}

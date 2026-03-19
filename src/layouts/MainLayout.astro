@@ -1,0 +1,37 @@
+---
+const { lang, title } = Astro.props;
+import ui from '../data/ui.json';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+const t = ui[lang];
+---
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title || t.site_title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body class="bg-[#f4f6f9] text-[#1e2b37] font-['Inter',sans-serif] antialiased">
+    
+    <Header lang={lang} />
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+
+    <footer class="bg-[#0e1f2b] text-[#4f6b7a] py-12 mt-20 border-t-8 border-[#00a0c5]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-bold text-white tracking-tighter uppercase text-xl">
+              HEXAGONE<span class="text-[#00a0c5]">.</span>ENGINEERING
+            </div>
+            <div class="text-sm">
+                © 2026 Hexagone - Expert Indépendant en Automation & Software.
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>

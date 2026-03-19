@@ -1,0 +1,150 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ui from '../../data/ui.json';
+
+const lang = 'en'; 
+const t = ui[lang].contact;
+
+const sectors = [
+  { id: 'indus', label: t.sectors.indus, icon: 'fa-gears' },
+  { id: 'soft', label: t.sectors.soft, icon: 'fa-microchip' },
+  { id: 'web', label: t.sectors.web, icon: 'fa-globe' },
+  { id: 'idea', label: t.sectors.idea, icon: 'fa-lightbulb' }
+].filter(s => s.label);
+---
+
+<MainLayout lang={lang} title={`${t.title} | Hexagone`}>
+  <div class="max-w-4xl mx-auto py-16 px-6">
+    <div class="mb-12 border-l-4 border-[#00a0c5] pl-6">
+      <h1 class="text-5xl font-black text-[#0e1f2b] uppercase italic tracking-tighter">
+        {t.title}
+      </h1>
+      <p class="text-slate-500 text-lg mt-2">{t.subtitle}</p>
+    </div>
+
+    <form 
+      id="contactForm" 
+      class="space-y-8"
+      novalidate
+      data-token="8566763670:AAEdvKp6DxCOJ4XDgRzFBwNtH1WHGaf2gnk"
+      data-chatid="6051665667"
+      data-success={t.success}
+      data-error={t.error_general}
+    >
+      <div class="space-y-3">
+        <label class="text-[11px] font-bold uppercase text-[#0e1f2b] ml-1">{t.sectors.title}</label>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {sectors.map((s, index) => (
+            <label class="cursor-pointer group">
+              <input 
+                type="radio" 
+                name="sector" 
+                value={s.id} 
+                class="peer hidden" 
+                checked={index === 0} 
+              />
+              <div class="h-full p-4 border-2 border-slate-100 rounded-2xl flex flex-col items-center justify-center text-center transition-all peer-checked:border-[#00a0c5] peer-checked:bg-slate-50 group-hover:border-slate-200">
+                <i class={`fas ${s.icon} text-xl mb-2 text-slate-400 peer-checked:text-[#00a0c5]`}></i>
+                <span class="text-[9px] font-bold uppercase tracking-widest text-slate-600 italic leading-tight">
+                  {s.label}
+                </span>
+              </div>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex flex-col gap-2">
+          <label class="text-[11px] font-bold uppercase text-[#0e1f2b] ml-1">{t.name_label}</label>
+          <input type="text" name="user_name" placeholder={t.name_placeholder} class="w-full bg-white border-2 border-slate-100 rounded-xl px-4 py-3 focus:border-[#00a0c5] outline-none transition-all shadow-sm" />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-[11px] font-bold uppercase text-[#0e1f2b] ml-1">{t.email_label}</label>
+          <input type="email" name="user_email" placeholder={t.email_placeholder} class="w-full bg-white border-2 border-slate-100 rounded-xl px-4 py-3 focus:border-[#00a0c5] outline-none transition-all shadow-sm" />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-[11px] font-bold uppercase text-[#0e1f2b] ml-1">{t.message_label}</label>
+        <textarea name="user_message" rows="5" placeholder={t.message_placeholder} class="w-full bg-white border-2 border-slate-100 rounded-2xl px-4 py-3 focus:border-[#00a0c5] outline-none transition-all shadow-sm resize-none"></textarea>
+      </div>
+
+      <button type="submit" id="submitBtn" class="w-full bg-[#0e1f2b] text-white py-5 rounded-2xl font-black uppercase tracking-[0.2em] italic hover:bg-[#00a0c5] transition-all flex items-center justify-center gap-3">
+        {t.submit}
+        <i class="fas fa-paper-plane text-xs"></i>
+      </button>
+
+      <div id="statusMessage" class="hidden text-center p-4 rounded-xl font-bold text-sm mt-4"></div>
+    </form>
+  </div>
+</MainLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('statusMessage');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = form.querySelector('[name="user_name"]').value.trim();
+      const email = form.querySelector('[name="user_email"]').value.trim();
+      const message = form.querySelector('[name="user_message"]').value.trim();
+      const sectorId = form.querySelector('[name="sector"]:checked')?.value || 'N/A';
+
+      // Validation manuelle rigoureuse
+      if (!name || !email || !message) {
+        status.className = "block text-orange-600 bg-orange-50 p-4 rounded-xl font-bold text-sm mt-4";
+        status.innerText = "Please fill in all fields.";
+        status.classList.remove('hidden');
+        return;
+      }
+
+      btn.disabled = true;
+      const originalHTML = btn.innerHTML;
+      btn.innerText = "SENDING...";
+      status.classList.add('hidden');
+
+      const text = `🚀 *NOUVEAU CONTACT HEXAGONE*\n\n` +
+                   `📂 *SECTEUR:* ${sectorId}\n` +
+                   `👤 *NOM:* ${name}\n` +
+                   `📧 *EMAIL:* ${email}\n\n` +
+                   `📝 *MESSAGE:*\n${message}`;
+
+      try {
+        const response = await fetch(`https://api.telegram.org/bot${form.dataset.token}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: form.dataset.chatid,
+            text: text,
+            parse_mode: 'Markdown'
+          })
+        });
+
+        if (response.ok) {
+          status.className = "block text-green-600 bg-green-50 p-4 rounded-xl font-bold text-sm mt-4";
+          status.innerText = form.dataset.success;
+          status.classList.remove('hidden');
+          form.reset();
+        } else {
+          const errorData = await response.json();
+          console.error("API Error Details:", errorData);
+          throw new Error('API_FAIL');
+        }
+      } catch (err) {
+        console.error("Transmission Error:", err);
+        status.className = "block text-red-600 bg-red-50 p-4 rounded-xl font-bold text-sm mt-4";
+        status.innerText = form.dataset.error;
+        status.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+      }
+    });
+  });
+</script>

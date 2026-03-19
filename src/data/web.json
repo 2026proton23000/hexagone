@@ -1,0 +1,38 @@
+[
+  {
+    "id": "san-jacinto",
+    "category": "Agro-Industrial",
+    "name": "Aceite San Jacinto",
+    "url": "https://2026proton23000.github.io/aceite-san-jacinto/",
+    "tagline": {
+      "fr": "Vitrine oléicole haute performance.",
+      "es": "Vitrina oleícola de alto rendimiento.",
+      "en": "High-performance olive oil showcase."
+    },
+    "description": {
+      "fr": "Plateforme immersive conçue pour valoriser l'huile d'olive extra vierge. Focus sur la narration visuelle du terroir et la clarté des spécifications techniques des produits.",
+      "es": "Plataforma inmersiva diseñada para valorizar el aceite de oliva virgen extra. Enfoque en la narrativa visual del terroir y claridad en especificaciones técnicas.",
+      "en": "Immersive platform designed to showcase extra virgin olive oil. Focus on visual storytelling of the terroir and clear technical product specifications."
+    },
+    "tech": ["HTML5", "Tailwind", "SEO Optimized"],
+    "features": ["Score Lighthouse 100", "Mobile-First Design", "Optimisation Images WebP", "SEO Localisé"]
+  },
+  {
+    "id": "direpro",
+    "category": "Gov / Data",
+    "name": "Direpro Valorizame",
+    "url": "https://2026proton23000.github.io/direpro_valorizame/",
+    "tagline": {
+      "fr": "Portail de données institutionnelles.",
+      "es": "Portal de datos institucionales.",
+      "en": "Institutional data portal."
+    },
+    "description": {
+      "fr": "Interface de centralisation pour le gouvernement régional. Ce projet démontre la capacité à structurer des données complexes dans une interface épurée et accessible.",
+      "es": "Interfaz de centralización para el gobierno regional. Este proyecto demuestra la capacidad de estructurar datos complejos en una interfaz limpia y accesible.",
+      "en": "Centralization interface for regional government. This project demonstrates the ability to structure complex data in a clean and accessible interface."
+    },
+    "tech": ["Data Viz", "Institutional UI", "UX Research"],
+    "features": ["Architecture de l'info", "Accessibilité", "Filtres Dynamiques", "Zéro Dépendance Cloud"]
+  }
+]
