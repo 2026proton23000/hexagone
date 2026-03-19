@@ -2,8 +2,15 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import ui from '../../data/ui.json';
 
-const lang = "fr";
+// 1. CONFIGURATION UNIQUE (Zéro doublon)
+const lang = "fr"; 
+const base = import.meta.env.BASE_URL;
 const t = ui[lang];
+
+// Sécurité : on vérifie que les traductions existent
+if (!t) {
+  throw new Error(`Traductions manquantes pour la langue : ${lang}`);
+}
 ---
 
 <MainLayout lang={lang} title={t.site_title}>
@@ -66,7 +73,7 @@ const t = ui[lang];
       </div>
       <h3 class="text-2xl font-black uppercase italic mb-4 tracking-tighter">{t.home_axes.software_title}</h3>
       <p class="text-slate-600 mb-6 text-base leading-relaxed">{t.home_axes.software_text}</p>
-      <a href={`/${lang}/software`} class="inline-flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-[#0e1f2b] group-hover:text-[#00a0c5] transition-colors">
+      <a href={`${base}/${lang}/software`} class="inline-flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-[#0e1f2b] group-hover:text-[#00a0c5] transition-colors">
         {t.home_axes.software_link} <i class="fas fa-long-arrow-alt-right"></i>
       </a>
     </div>
@@ -77,7 +84,7 @@ const t = ui[lang];
       </div>
       <h3 class="text-2xl font-black uppercase italic mb-4 tracking-tighter">{t.home_axes.web_title}</h3>
       <p class="text-slate-600 mb-6 text-base leading-relaxed">{t.home_axes.web_text}</p>
-      <a href={`/${lang}/web`} class="inline-flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-[#0e1f2b] group-hover:text-[#00a0c5] transition-colors">
+      <a href={`${base}/${lang}/web`} class="inline-flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] text-[#0e1f2b] group-hover:text-[#00a0c5] transition-colors">
         {t.home_axes.web_link} <i class="fas fa-long-arrow-alt-right"></i>
       </a>
     </div>
@@ -147,14 +154,14 @@ const t = ui[lang];
         <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-md">
           {t.home_contact_section.subtitle}
         </p>
-        <a href={`/${lang}/contact`} class="inline-flex items-center gap-3 bg-[#0e1f2b] text-white px-9 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:shadow-lg hover:-translate-y-0.5 transition-all">
+        <a href={`${base}/${lang}/contact`} class="inline-flex items-center gap-3 bg-[#0e1f2b] text-white px-9 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:shadow-lg hover:-translate-y-0.5 transition-all">
           {t.home_contact_section.button} <i class="fas fa-paper-plane text-[10px]"></i>
         </a>
       </div>
     </div>
   </section>
 
-</Layout>
+</MainLayout>
 
 <style>
   summary::-webkit-details-marker { display: none; }
