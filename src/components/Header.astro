@@ -2,24 +2,27 @@
 import LanguagePicker from './LanguagePicker.astro';
 const { lang } = Astro.props;
 
+// 1. On récupère le préfixe configuré dans astro.config.mjs (/hexagone)
+const base = import.meta.env.BASE_URL;
+
 const menu = {
   fr: [
-    { name: "Industrie", href: `/${lang}/industry` },
-    { name: "Logiciel", href: `/${lang}/software` },
-    { name: "Web Development", href: `/${lang}/web` },
-    { name: "Contact", href: `/${lang}/contact` },
+    { name: "Industrie", href: `${base}/fr/industry` },
+    { name: "Logiciel", href: `${base}/fr/software` },
+    { name: "Web Development", href: `${base}/fr/web` },
+    { name: "Contact", href: `${base}/fr/contact` },
   ],
   es: [
-    { name: "Industria", href: `/${lang}/industry` },
-    { name: "Software", href: `/${lang}/software` },
-    { name: "Desarrollo Web", href: `/${lang}/web` },
-    { name: "Contacto", href: `/${lang}/contact` },
+    { name: "Industria", href: `${base}/es/industry` },
+    { name: "Software", href: `${base}/es/software` },
+    { name: "Desarrollo Web", href: `${base}/es/web` },
+    { name: "Contacto", href: `${base}/es/contact` },
   ],
   en: [
-    { name: "Industry", href: `/${lang}/industry` },
-    { name: "Software", href: `/${lang}/software` },
-    { name: "Web Development", href: `/${lang}/web` },
-    { name: "Contact", href: `/${lang}/contact` },
+    { name: "Industry", href: `${base}/en/industry` },
+    { name: "Software", href: `${base}/en/software` },
+    { name: "Web Development", href: `${base}/en/web` },
+    { name: "Contact", href: `${base}/en/contact` },
   ]
 };
 ---
@@ -28,7 +31,7 @@ const menu = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-20">
         <div class="flex items-center">
-          <a href={`/${lang}/`} class="flex-shrink-0 flex flex-col">
+          <a href={`${base}/${lang}/`} class="flex-shrink-0 flex flex-col">
             <span class="font-black text-2xl text-[#0e1f2b] tracking-tighter uppercase">HEXAGONE</span>
             <span class="text-[10px] text-[#4f6b7a] tracking-[0.2em] uppercase font-medium">Engineering & Software</span>
           </a>

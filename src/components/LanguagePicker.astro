@@ -1,8 +1,8 @@
 ---
-// LanguagePicker.astro
-const { currentLang } = Astro.props;
+// 1. Récupérer la base (/hexagone)
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // On enlève le slash final s'il existe
 
-// On récupère le chemin actuel (ex: /fr/web)
+const { currentLang } = Astro.props;
 const { pathname } = Astro.url;
 
 const languages = {
@@ -12,19 +12,22 @@ const languages = {
 };
 
 function getLocalizedLink(targetLang) {
-  // On nettoie l'URL pour enlever les slashs vides
+  // On nettoie l'URL pour ne garder que les segments utiles
+  // Exemple : "/hexagone/fr/web" -> ["hexagone", "fr", "web"]
   const segments = pathname.split('/').filter(Boolean);
   
-  // Si on est à la racine "/" ou juste sur une langue "/fr/"
-  if (segments.length <= 1) {
-    return `/${targetLang}/`;
+  // Cas A : On est sur GitHub Pages (le premier segment est "hexagone")
+  // On cherche l'index de la langue actuelle dans les segments
+  const langIndex = segments.findIndex(s => s === currentLang);
+
+  if (langIndex !== -1) {
+    // On remplace juste la langue à son emplacement précis
+    segments[langIndex] = targetLang;
+    return `/${segments.join('/')}/`;
   }
 
-  // On garde le reste du chemin (ex: 'web' ou 'industry') 
-  // et on change juste le premier segment (la langue)
-  segments[0] = targetLang;
-  
-  return `/${segments.join('/')}`;
+  // Cas B : Sécurité (si la langue n'est pas trouvée dans l'URL)
+  return `${base}/${targetLang}/`;
 }
 ---
 
