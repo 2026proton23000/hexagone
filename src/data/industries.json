@@ -8,7 +8,11 @@
       "en": "Full extraction process automation, debittering batch management, and QR traceability."
     },
     "icon": "fa-seedling",
-    "linked_app": "oleoflow"
+    "linked_app": "oleoflow",
+    "solutions": [
+      { "icon": "fa-qrcode", "title": { "fr": "Traçabilité Totale", "en": "Full Traceability" }, "desc": { "fr": "Génération de QR Codes uniques par bac pour suivi de l'arbre au client.", "en": "Unique QR Code generation for each bin, from tree to customer." }},
+      { "icon": "fa-thermometer-half", "title": { "fr": "Contrôle pH/Temp", "en": "pH/Temp Control" }, "desc": { "fr": "Monitoring en temps réel des cuves de désamérisation.", "en": "Real-time monitoring of debittering tanks." }}
+    ]
   },
   {
     "id": "manufacture",
@@ -19,17 +23,25 @@
       "en": "Real-time production monitoring and paperless reporting via Maverick OS."
     },
     "icon": "fa-industry",
-    "linked_app": "maverick-engine"
+    "linked_app": "maverick-engine",
+    "solutions": [
+      { "icon": "fa-desktop", "title": { "fr": "IHM Industrielle", "en": "Industrial HMI" }, "desc": { "fr": "Interfaces tactiles pour les opérateurs en atelier.", "en": "Touchscreen interfaces for workshop operators." }},
+      { "icon": "fa-database", "title": { "fr": "Local-First Data", "en": "Local-First Data" }, "desc": { "fr": "Base de données locale synchronisée uniquement lors de la connexion.", "en": "Local DB synced only when connection is available." }}
+    ]
   },
   {
     "id": "logistique",
     "title": { "fr": "Logistique & Quai", "es": "Logística y Muelles", "en": "Logistics & Docks" },
     "description": { 
       "fr": "Gestion des flux d'entrée/sortie, pesée connectée et synchronisation en zone blanche (hors-ligne).",
-      "es": "Gestión de flujos de entrada/salida, pesaje conectado y sincronización offline.",
+      "es": "Gestión de flujos de entrada/salida, pesaje conectado y synchronización offline.",
       "en": "In/Out flow management, connected weighing, and offline synchronization."
     },
     "icon": "fa-truck-loading",
-    "linked_app": "payload-app"
+    "linked_app": "payload-app",
+    "solutions": [
+      { "icon": "fa-weight", "title": { "fr": "Pesée Connectée", "en": "Connected Weighing" }, "desc": { "fr": "Interfaçage direct avec les ponts-bascule via RS232/IP.", "en": "Direct bridge-scale interfacing via RS232/IP." }},
+      { "icon": "fa-wifi-slash", "title": { "fr": "Mode Hors-ligne Store", "en": "Offline Store Mode" }, "desc": { "fr": "Opérationnel à 100% sans internet sur les quais de chargement.", "en": "100% operational without internet on loading docks." }}
+    ]
   }
 ]

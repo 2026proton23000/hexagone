@@ -1,35 +1,165 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import industries from '../../data/industries.json';
-const lang = "en";
+
+// 1. DÉTECTION DYNAMIQUE DE LA LANGUE VIA L'URL
+const { pathname } = Astro.url;
+// On extrait la langue du chemin (ex: /es/industry -> es)
+const lang = pathname.split('/').filter(Boolean).find(s => ['fr', 'es', 'en'].includes(s)) || 'fr';
+
+const base = import.meta.env.BASE_URL;
+
+// 2. TRADUCTIONS DES LABELS STATIQUES
+const labels = {
+  fr: { 
+    modal_close: "Fermer", 
+    modal_cta: "Voir le projet", 
+    modal_title: "Détails Techniques",
+    page_title: "Nos secteurs d'impact",
+    page_subtitle: "Expertise Terrain",
+    card_cta: "Analyse des besoins"
+  },
+  en: { 
+    modal_close: "Close", 
+    modal_cta: "View project", 
+    modal_title: "Technical Details",
+    page_title: "Our Impact Sectors",
+    page_subtitle: "Field Expertise",
+    card_cta: "Needs Analysis"
+  },
+  es: { 
+    modal_close: "Cerrar", 
+    modal_cta: "Ver proyecto", 
+    modal_title: "Detalles Técnicos",
+    page_title: "Nuestros sectores de impacto",
+    page_subtitle: "Experiencia en Terreno",
+    card_cta: "Análisis de necesidades"
+  }
+};
+
+const t = labels[lang];
 ---
 
-<MainLayout lang={lang} title="Secteurs d'Intervention | Hexagone">
-  <div class="py-12">
+<MainLayout lang={lang} title={`${t.page_title} | Hexagone`}>
+  <div class="py-12 px-4 max-w-7xl mx-auto">
     <div class="mb-16">
-        <span class="text-[#00a0c5] font-bold tracking-widest uppercase text-sm italic">Expertise Terrain</span>
-        <h1 class="text-5xl font-black text-[#0e1f2b] mt-2 uppercase italic tracking-tighter">Nos secteurs d'impact</h1>
-        <div class="h-1.5 w-24 bg-[#00a0c5] mt-4"></div>
+        <span class="text-[#00a0c5] font-bold tracking-widest uppercase text-[10px] italic bg-[#00a0c5]/10 px-3 py-1 rounded-full">
+          {t.page_subtitle}
+        </span>
+        <h1 class="text-5xl font-black text-[#0e1f2b] mt-4 uppercase italic tracking-tighter leading-none">
+          {t.page_title}
+        </h1>
+        <div class="h-1.5 w-24 bg-[#00a0c5] mt-6"></div>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
       {industries.map((item) => (
-        <div class="bg-white border border-[#bfd8e4] rounded-3xl p-8 shadow-sm hover:shadow-xl hover:border-[#00a0c5] transition-all group">
-          <div class="w-16 h-16 bg-[#e2f0f7] border border-[#bddbe9] rounded-2xl flex items-center justify-center text-[#00799e] text-2xl mb-6 group-hover:bg-[#00a0c5] group-hover:text-white transition-colors">
+        <div class="bg-white border border-[#bfd8e4] rounded-[2.5rem] p-8 shadow-sm hover:shadow-2xl hover:border-[#00a0c5] transition-all group flex flex-col h-full">
+          <div class="w-16 h-16 bg-[#e2f0f7] border border-[#bddbe9] rounded-2xl flex items-center justify-center text-[#00799e] text-2xl mb-6 group-hover:bg-[#00a0c5] group-hover:text-white transition-all transform group-hover:rotate-6">
             <i class={`fas ${item.icon}`}></i>
           </div>
-          <h3 class="text-2xl font-bold text-[#14313f] mb-4 uppercase tracking-tight">{item.title[lang]}</h3>
-          <p class="text-[#3c6275] leading-relaxed mb-8 h-24">
+          <h3 class="text-2xl font-black text-[#14313f] mb-4 uppercase tracking-tight italic">
+            {item.title[lang]}
+          </h3>
+          <p class="text-[#3c6275] leading-relaxed mb-8 flex-grow">
             {item.description[lang]}
           </p>
-          <a 
-            href={`/${lang}/software#${item.linked_app}`} 
-            class="inline-flex items-center gap-2 font-bold text-[#007396] border-b-2 border-dashed border-[#00a0c5] pb-1 hover:gap-4 transition-all"
+          
+          <button 
+            onclick={`window.openIndustryModal('${item.id}')`}
+            class="inline-flex items-center justify-between gap-2 font-black text-[10px] uppercase tracking-widest text-[#007396] border-2 border-[#00a0c5]/20 rounded-full px-6 py-3 hover:bg-[#00a0c5] hover:text-white transition-all w-full"
           >
-            Voir la solution technique <i class="fas fa-arrow-right text-sm"></i>
-          </a>
+            {t.card_cta} <i class="fas fa-plus-circle text-sm"></i>
+          </button>
         </div>
       ))}
     </div>
   </div>
+
+  <div id="industry-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-[#0e1f2b]/95 backdrop-blur-sm">
+    <div class="bg-white w-full max-w-3xl rounded-[3rem] overflow-hidden shadow-2xl transform transition-all scale-95 opacity-0 duration-300" id="modal-content">
+      <div class="p-8 md:p-12 relative">
+        <button onclick="window.closeIndustryModal()" class="absolute top-8 right-8 text-slate-400 hover:text-[#0e1f2b] text-xl transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  </div>
 </MainLayout>
+
+<script is:inline define:vars={{ industries, lang, base, t }}>
+  window.openIndustryModal = function(id) {
+    const item = industries.find(i => i.id === id);
+    if (!item) return;
+
+    const modal = document.getElementById('industry-modal');
+    const content = document.getElementById('modal-content');
+    const body = document.getElementById('modal-body');
+
+    // Sécurité anti-undefined : on récupère les données selon la langue injectée
+    const title = item.title[lang] || item.title['fr'];
+    const desc = item.description[lang] || item.description['fr'];
+
+    const solutionsHtml = item.solutions ? item.solutions.map(sol => `
+      <div class="flex gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100 group hover:border-[#00a0c5]/30 transition-colors">
+        <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-[#00a0c5] shadow-sm">
+          <i class="fas ${sol.icon}"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-[#0e1f2b] text-sm uppercase tracking-tight">${sol.title[lang] || sol.title['fr']}</h4>
+          <p class="text-xs text-slate-500 leading-relaxed mt-1">${sol.desc[lang] || sol.desc['fr']}</p>
+        </div>
+      </div>
+    `).join('') : '';
+
+    body.innerHTML = `
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-[#00a0c5] text-white rounded-xl flex items-center justify-center text-xl shadow-lg shadow-[#00a0c5]/30">
+          <i class="fas ${item.icon}"></i>
+        </div>
+        <h2 class="text-3xl font-black uppercase italic tracking-tighter text-[#0e1f2b]">${title}</h2>
+      </div>
+      
+      <p class="text-slate-600 text-lg mb-8 leading-relaxed italic border-l-4 border-[#00a0c5]/20 pl-6">${desc}</p>
+
+      <h3 class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-6 flex items-center gap-4">
+        <span class="h-[1px] bg-slate-200 flex-grow"></span>
+        ${t.modal_title}
+        <span class="h-[1px] bg-slate-200 flex-grow"></span>
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-10">
+        ${solutionsHtml}
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="${base}/${lang}/software#${item.linked_app}" class="bg-[#0e1f2b] text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-[#00a0c5] transition-all">
+          ${t.modal_cta} <i class="fas fa-external-link-alt ml-2"></i>
+        </a>
+        <button onclick="window.closeIndustryModal()" class="border-2 border-slate-200 text-slate-500 px-8 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-slate-50 transition-all">
+          ${t.modal_close}
+        </button>
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+      content.classList.remove('scale-95', 'opacity-0');
+      content.classList.add('scale-100', 'opacity-100');
+    }, 10);
+  };
+
+  window.closeIndustryModal = function() {
+    const modal = document.getElementById('industry-modal');
+    const content = document.getElementById('modal-content');
+    content.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 300);
+  };
+
+  document.getElementById('industry-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'industry-modal') window.closeIndustryModal();
+  });
+</script>
